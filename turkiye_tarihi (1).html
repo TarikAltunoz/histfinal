@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Türkiye Tarihi: 1960–2000</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --paper: #f5f0e8;
+    --aged: #ede5d0;
+    --rust: #8b3a1e;
+    --gold: #c9933a;
+    --slate: #3d4a5c;
+    --olive: #5a6b3a;
+    --muted: #7a6e5f;
+    --red: #7c2020;
+    --border: #c4b49a;
+    --white: #fff;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.85;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 90px 40px 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content:'';
+    position:absolute; inset:0;
+    background: repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,255,255,0.012) 2px,rgba(255,255,255,0.012) 4px);
+  }
+  header::after {
+    content:'';
+    position:absolute;
+    bottom:0; left:0; right:0;
+    height:4px;
+    background: linear-gradient(90deg, var(--rust), var(--gold), var(--olive), var(--gold), var(--rust));
+  }
+  .header-eyebrow {
+    font-size:11px; letter-spacing:5px; text-transform:uppercase;
+    color:var(--gold); margin-bottom:22px;
+  }
+  header h1 {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(36px,7vw,84px); font-weight:900;
+    line-height:1.05; letter-spacing:-1px; margin-bottom:20px;
+  }
+  header h1 em { font-style:italic; color:var(--gold); }
+  .header-sub {
+    font-size:15px; color:rgba(245,240,232,0.55);
+    max-width:520px; margin:0 auto 32px;
+  }
+  .era-pills {
+    display:flex; justify-content:center; gap:12px; flex-wrap:wrap;
+    margin-top:8px;
+  }
+  .era-pill {
+    padding:6px 18px;
+    border:1px solid rgba(201,147,58,0.4);
+    color:var(--gold);
+    font-size:13px; letter-spacing:2px;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:all .2s;
+  }
+  .era-pill:hover { background:var(--gold); color:var(--ink); }
+
+  /* NAV */
+  nav {
+    background:#111;
+    padding:0 40px;
+    display:flex; justify-content:center; gap:0; flex-wrap:wrap;
+    position:sticky; top:0; z-index:100;
+    box-shadow:0 2px 20px rgba(0,0,0,0.4);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  nav a {
+    color:rgba(245,240,232,0.55);
+    text-decoration:none; font-size:11px;
+    letter-spacing:2px; text-transform:uppercase;
+    padding:14px 18px;
+    border-bottom:2px solid transparent;
+    transition:all .2s;
+  }
+  nav a:hover { color:var(--gold); border-bottom-color:var(--gold); }
+
+  /* MAIN */
+  main { max-width:920px; margin:0 auto; padding:0 28px 100px; }
+
+  /* ERA SECTIONS */
+  .era { margin-top:90px; }
+  .era-header {
+    display:flex; align-items:baseline; gap:20px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:14px; margin-bottom:54px;
+  }
+  .era-number {
+    font-family:'Playfair Display',serif;
+    font-size:80px; font-weight:900; line-height:1;
+    color:var(--border); flex-shrink:0;
+  }
+  .era-title-block h2 {
+    font-family:'Playfair Display',serif;
+    font-size:34px; font-weight:700; color:var(--ink);
+  }
+  .era-title-block .era-tagline {
+    font-size:12px; letter-spacing:2.5px;
+    text-transform:uppercase; color:var(--muted); margin-top:5px;
+  }
+
+  /* TOPIC CARDS */
+  .topic {
+    margin-bottom:52px;
+    border:1px solid var(--border);
+    border-left:4px solid var(--rust);
+    background:var(--white);
+    position:relative;
+  }
+  .topic.slate { border-left-color:var(--slate); }
+  .topic.olive { border-left-color:var(--olive); }
+  .topic.gold  { border-left-color:var(--gold); }
+  .topic.red   { border-left-color:var(--red); }
+  .topic.dark  { border-left-color:#333; }
+
+  .topic-inner { padding:36px 40px; }
+
+  .topic-label {
+    font-size:10px; letter-spacing:3px; text-transform:uppercase;
+    color:var(--muted); margin-bottom:8px;
+  }
+  .topic h3 {
+    font-family:'Playfair Display',serif;
+    font-size:26px; font-weight:700;
+    margin-bottom:20px; color:var(--ink); line-height:1.25;
+  }
+  .topic p { color:#3a3228; margin-bottom:15px; font-size:16.5px; }
+  .topic p:last-child { margin-bottom:0; }
+
+  /* BAND TITLE (coloured header bar) */
+  .topic-band {
+    padding:14px 40px;
+    display:flex; align-items:center; gap:14px;
+  }
+  .topic.red   .topic-band { background:var(--red); }
+  .topic.slate .topic-band { background:var(--slate); }
+  .topic.olive .topic-band { background:var(--olive); }
+  .topic.gold  .topic-band { background:var(--gold); }
+  .topic.dark  .topic-band { background:#222; }
+  .topic-band .band-label {
+    font-size:10px; letter-spacing:3px; text-transform:uppercase;
+    color:rgba(255,255,255,0.6);
+  }
+  .topic-band h3 {
+    font-family:'Playfair Display',serif;
+    font-size:22px; font-weight:700;
+    color:#fff; margin:0; line-height:1.3;
+  }
+
+  /* FACT BOX */
+  .fact-box {
+    background:var(--aged); border:1px solid var(--border);
+    padding:18px 22px; margin:20px 0;
+    font-size:15.5px; color:#4a4035;
+    font-style:italic; line-height:1.7;
+  }
+  .fact-box strong { color:var(--ink); font-style:normal; }
+
+  /* QUOTE */
+  .pull-quote {
+    border-left:3px solid var(--gold);
+    padding:12px 20px;
+    margin:20px 0;
+    font-family:'Playfair Display',serif;
+    font-style:italic; font-size:18px;
+    color:var(--ink); line-height:1.6;
+    background:rgba(201,147,58,0.06);
+  }
+
+  /* TIMELINE */
+  .timeline-list {
+    list-style:none; margin:16px 0;
+    border-left:2px solid var(--border);
+    padding-left:28px;
+  }
+  .timeline-list li {
+    position:relative; margin-bottom:14px;
+    font-size:15.5px; color:#3a3228; padding-left:6px;
+  }
+  .timeline-list li::before {
+    content:''; position:absolute;
+    left:-34px; top:9px;
+    width:9px; height:9px;
+    background:var(--rust); border-radius:50%;
+    border:2px solid var(--paper);
+    box-shadow:0 0 0 1px var(--rust);
+  }
+  .timeline-list li .year {
+    font-weight:700; color:var(--rust);
+    margin-right:8px; font-size:13px;
+    letter-spacing:1px;
+  }
+
+  /* NUMBERED CAUSES */
+  .causes { display:grid; gap:12px; margin:18px 0; }
+  .cause-item {
+    display:flex; gap:14px; align-items:flex-start;
+    padding:16px 18px;
+    background:var(--aged); border:1px solid var(--border);
+  }
+  .cause-num {
+    font-family:'Playfair Display',serif;
+    font-size:24px; font-weight:700;
+    color:var(--rust); line-height:1;
+    flex-shrink:0; width:28px;
+  }
+  .cause-item p { margin:0; font-size:15.5px; }
+
+  /* COMPARE */
+  .compare { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0; }
+  .compare-box {
+    padding:18px 20px; border:1px solid var(--border);
+    background:var(--aged);
+  }
+  .compare-box h4 {
+    font-size:11px; letter-spacing:2px; text-transform:uppercase;
+    color:var(--muted); margin-bottom:8px;
+  }
+  .compare-box p { font-size:15px; margin:0; }
+
+  /* GRID 3 */
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:18px 0; }
+  .grid3-item {
+    padding:16px; border:1px solid var(--border);
+    background:var(--aged);
+  }
+  .grid3-item strong { display:block; font-size:13px; letter-spacing:1px; color:var(--ink); margin-bottom:6px; text-transform:uppercase; }
+  .grid3-item p { font-size:14.5px; margin:0; color:#4a4035; }
+
+  /* TAG ROW */
+  .tags { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; }
+  .tag {
+    padding:5px 12px; border:1px solid var(--border);
+    font-size:12px; letter-spacing:1px;
+    color:var(--muted); background:var(--aged);
+  }
+
+  /* HIGHLIGHT ROW */
+  .highlight-row {
+    display:flex; gap:0; margin:20px 0;
+    border:1px solid var(--border);
+    overflow:hidden;
+  }
+  .hr-item {
+    flex:1; padding:16px 18px;
+    border-right:1px solid var(--border);
+    background:var(--aged);
+    text-align:center;
+  }
+  .hr-item:last-child { border-right:none; }
+  .hr-item .hr-val {
+    font-family:'Playfair Display',serif;
+    font-size:28px; font-weight:700;
+    color:var(--rust); display:block;
+  }
+  .hr-item .hr-label {
+    font-size:12px; letter-spacing:1px;
+    text-transform:uppercase; color:var(--muted);
+    margin-top:4px; display:block;
+  }
+
+  /* TABLE */
+  .data-table { width:100%; border-collapse:collapse; margin:18px 0; font-size:15px; }
+  .data-table th {
+    background:var(--ink); color:var(--paper);
+    padding:10px 14px; text-align:left;
+    font-family:'Source Serif 4',serif; font-weight:600;
+    font-size:12px; letter-spacing:1px; text-transform:uppercase;
+  }
+  .data-table td { padding:11px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
+  .data-table tr:nth-child(even) td { background:var(--aged); }
+  .data-table td:first-child { font-weight:600; color:var(--rust); white-space:nowrap; }
+
+  /* ORNAMENT */
+  .ornament { text-align:center; color:var(--border); font-size:22px; margin:60px 0; letter-spacing:10px; }
+
+  /* FOOTER */
+  footer {
+    background:var(--ink); color:rgba(245,240,232,0.45);
+    text-align:center; padding:48px 40px; font-size:13px; letter-spacing:1px;
+  }
+  footer p+p { margin-top:8px; }
+
+  @media (max-width:640px) {
+    .compare, .grid3 { grid-template-columns:1fr; }
+    .topic-inner { padding:24px 18px; }
+    .topic-band { padding:12px 18px; }
+    .era-number { font-size:52px; }
+    .highlight-row { flex-wrap:wrap; }
+    .hr-item { flex:1 0 45%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="header-eyebrow">Türkiye Cumhuriyeti Siyasi Tarihi</p>
+  <h1>Darbeler, Anayasalar<br>ve <em>Büyük Dönüşümler</em></h1>
+  <p class="header-sub">1960'lardan 2000'lere uzanan dört on yılın siyasi, ekonomik, toplumsal ve kültürel derinlemesine analizi</p>
+  <div class="era-pills">
+    <a href="#altmislar" class="era-pill">60'lar</a>
+    <a href="#yetmisler" class="era-pill">70'ler</a>
+    <a href="#seksenler" class="era-pill">80'ler</a>
+    <a href="#doksanlar" class="era-pill">90'lar</a>
+  </div>
+</header>
+
+<nav>
+  <a href="#altmislar">60'lar: İkinci Cumhuriyet</a>
+  <a href="#yetmisler">70'ler: Kaos ve Muhtıra</a>
+  <a href="#seksenler">80'ler: Neoliberal Dönüşüm</a>
+  <a href="#doksanlar">90'lar: Kaos Ondalığı</a>
+</nav>
+
+<main>
+
+<!-- ===================================================
+     60'LAR
+     =================================================== -->
+<section class="era" id="altmislar">
+  <div class="era-header">
+    <div class="era-number">60</div>
+    <div class="era-title-block">
+      <h2>İkinci Cumhuriyet</h2>
+      <p class="era-tagline">1960–1969 · 27 Mayıs Darbesi · 61 Anayasası · Planlı Ekonomi</p>
+    </div>
+  </div>
+
+  <!-- NEDEN 2. CUMHURİYET -->
+  <div class="topic red">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">Genel Çerçeve</div>
+        <h3>Neden "İkinci Cumhuriyet" Denildi?</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>1961 Anayasası'nı hazırlayanlar, 27 Mayıs 1960 darbesinin ardından kurulan yeni siyasal düzeni bir köklü kırılma olarak gördüler ve bu döneme "2. Cumhuriyet" adını verdiler. Bu nitelendirmenin arkasında somut gerekçeler bulunmaktadır: 1924 Anayasası'nın lağvedilmesi, kuvvetler ayrılığı ilkesinin hayata geçirilmesi, temel hak ve özgürlüklerin anayasal güvence altına alınması, üniversitelerin ve TRT'nin özerkleşmesi, sendika ve grev hakkının tanınması.</p>
+      <p>Bu dönemde özellikle 1950-60 arasındaki Demokrat Parti iktidarının tek adam yönetimine ve anayasal çerçevenin dışına çıkmasına karşı bir tepki olarak yeni bir siyasal kültür inşa edilmeye çalışılmıştır. 60'ların Türkiye'si ilk kez gerçek anlamda çoğulcu bir siyasal atmosferde nefes almıştır.</p>
+      <div class="fact-box"><strong>TRT'nin Kuruluşu (1964):</strong> 61 Anayasası, iletişim kurumlarının devlet müdahalesinden bağımsız, özerk bir yapıda örgütlenmesini zorunlu kılıyordu. TRT bu çerçevede 1964'te kuruldu. Yayın politikası tarafsız, eşit mesafeli ve kamusal çıkarı gözeten bir ilkeyle belirlendi. Bu yapı 90'lara kadar korunacak, özel yayıncılığın başlamasıyla dönüşüme uğrayacaktır.</div>
+      <p><strong>Planlı Ekonomi:</strong> Devlet Planlama Teşkilatı kuruldu. İthal ikameci sanayileşme modeli benimsendi: Temel fikir, dışarıdan ithal edilen malları yurt içinde üretmek ve dövizi ülkede tutmaktı. Beş yıllık kalkınma planları hazırlandı. Ancak ağır sanayi yeterince gelişemedi; model tüketim malları üretiminde başarılı olurken sermaye malları üretiminde yetersiz kaldı.</p>
+    </div>
+  </div>
+
+  <!-- 27 MAYIS DARBESİ -->
+  <div class="topic">
+    <div class="topic-band" style="background:var(--ink);">
+      <div>
+        <div class="band-label">27 Mayıs 1960</div>
+        <h3>Türkiye'nin İlk Askeri Darbesinin Anatomisi</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>27 Mayıs 1960, Türkiye Cumhuriyeti tarihinde ilk kez ordunun sivil iktidarı devirdiği tarihtir. Ancak bu darbenin kendine özgü karakteri, onu sonraki askeri müdahalelerden önemli ölçüde ayırt etmektedir.</p>
+
+      <div class="highlight-row">
+        <div class="hr-item"><span class="hr-val">İlk</span><span class="hr-label">TC'nin ilk askeri darbesi</span></div>
+        <div class="hr-item"><span class="hr-val">Alt Rütbe</span><span class="hr-label">Yüksek rütbeliler katılmadı</span></div>
+        <div class="hr-item"><span class="hr-val">Ekim 1961</span><span class="hr-label">Sivil yönetime devir</span></div>
+        <div class="hr-item"><span class="hr-val">38 Subay</span><span class="hr-label">MBK üye sayısı</span></div>
+      </div>
+
+      <p><strong>Klasik bir darbede iki temel unsur beklenir:</strong> Birincisi, medya ve yayın organlarına el konulması. İkincisi, koordineli ve büyük ölçekli senkronize bir harekât. 60 darbesinde birincisi gerçekleşti — yayın organları kontrol altına alındı — ancak senkronize ve kapsamlı bir operasyon yapılmadı. Bu eksiklik rastlantısal değildir; darbenin kim tarafından yapıldığını doğrudan açıklamaktadır.</p>
+
+      <div class="pull-quote">"Yüksek rütbeli subaylar darbeye katılmadı. 60 darbesini üsteğmen ve yüzbaşı düzeyindeki orta-alt rütbeli subaylar gerçekleştirdi."</div>
+
+      <p>Bu ayrım son derece önemlidir. Darbe önce medya yoluyla kamuoyuna duyuruldu; büyük çaplı ve koordineli bir kuvvet harekâtı yoktu. Yüksek rütbeliler değil, düşük rütbeliler inisiyatif aldı. Dolayısıyla 60 darbesi, kurumsal ordu iradesinin değil; idealist, milliyetçi ve DP iktidarından hoşnut olmayan bir subay grubunun spontane müdahalesinin ürünüdür.</p>
+
+      <p><strong>Ragıp Gümüşbala Meselesi:</strong> Gümüşbala, subaylara "Sizi tanımıyorum, itaat etmem; bir lider bulun yoksa harekete geçerim" diye tehdit eden önemli bir aktördür. Sonunda Genel Kurmay Başkanlığı verilerek susturuldu. 1961'de Adalet Partisi'ni kuracak olan Gümüşbala, darbe sonrası askeri yönetimi dağıtmakla sürekli tehdit etti. Bu figür, darbenin ne kadar kırılgan ve tartışmalı bir zemine oturduğunu gösteren bir işarettir.</p>
+
+      <p><strong>Milli Birlik Komitesi:</strong> Darbeyi gerçekleştiren 38 subaydan oluşan MBK, asıl karar mercii oldu. Başında Cemal Gürsel bulunuyordu. Komite içinde iki görüş çarpıştı: Askeri yönetimi sürdürmek isteyenler (Alparslan Türkeş ve 14'lükler) ile sivil yönetime en kısa sürede devretmek isteyenler. Devretmeyi savunanlar galip geldi; 14 kişi MBK'dan tasfiye edildi. Ekim 1961'de sivil yönetime devredildi ve seçime gidildi.</p>
+    </div>
+  </div>
+
+  <!-- 60 DARBESİNİN NEDENLERİ -->
+  <div class="topic slate">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">Arka Plan Analizi</div>
+        <h3>Darbenin Dört Kökü: Neden 1960?</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <div class="causes">
+        <div class="cause-item">
+          <div class="cause-num">1</div>
+          <div><p><strong>Ekonomik Darboğaz:</strong> Marshall Planı yardımları 1950'lerin ortasında sona erince Türkiye ciddi bir döviz sıkıntısına girdi. DP hükümeti yatırım çekemez, ihracat yapamaz hale geldi. Menderes, ekonomik bunalımdan çıkış yolu ararken Sovyetler Birliği'ne yaklaşmaya başladı — bu, Soğuk Savaş dengelerinde tehlikeli bir adımdı. Benzer süreçler Ortadoğu'da da yaşanıyordu; İran'da aynı dönemde darbe olmuştu.</p></div>
+        </div>
+        <div class="cause-item">
+          <div class="cause-num">2</div>
+          <div><p><strong>Siyasi Kriz ve Otoriterleşme:</strong> 1955 sonrasında DP, muhalefetin üzerine sistematik biçimde gitti. Baskı araçları şunlardı: Vatan Cephesi aracılığıyla toplumsal kutuplaşma yaratıldı. 1950'lerde kahveler siyasi çizgiye göre ayrıştı. Radyo devlet propagandasına dönüştürüldü; Vatan Cephesi'ne kayıt olanların isimleri radyoda okundu. Komünist yayınlar kapatıldı. Tahkikat Komisyonu kurularak muhalefet partilerinin ikinci bir emre kadar kongre yapması yasaklandı. 50-55 dönemi demokratikleşme ve hakların genişlemesiyken, 55-60 dönemi otoritecilik ve hakların gerilemesidir.</p></div>
+        </div>
+        <div class="cause-item">
+          <div class="cause-num">3</div>
+          <div><p><strong>Ekonomik Kriz:</strong> Türk lirası devalüe edildi. IMF ile yapılan istikrar anlaşması askeri çevrelerde ulusal onura aykırı bulundu. Enflasyon, döviz kıtlığı ve mal yokluğu gündelik yaşamı zorlaştırmıştı.</p></div>
+        </div>
+        <div class="cause-item">
+          <div class="cause-num">4</div>
+          <div><p><strong>Toplumsal Gerilim:</strong> Tahkikat Komisyonu'na tepki olarak üniversite öğrencileri sokaklara döküldü; İstanbul'da sıkıyönetim ilan edildi. Askerin DP'den giderek uzaklaştığı bu ortamda darbe planları yapılmaya başlandı; 9 subay yargılandı. 1968 öğrenci hareketi Türkiye'ye radikalleşme ve militanlaşma olarak yansıdı.</p></div>
+        </div>
+      </div>
+      <div class="fact-box"><strong>Neden Asker Harekete Geçti?</strong> Kemalist subay geleneğinde ordu, yalnızca dış tehditlere karşı değil iç tehditler karşısında da "cumhuriyetin bekçisi" rolünü üstlenmiştir. DP'nin 1924 Anayasası'nı çiğnemesi ve tek adam yönetimine eğilimi, askeri çevrelerde Kemalist ilkelerin tehdit altında olduğu algısını güçlendirdi. Bu ideolojik çerçeve, darbenin meşruiyet zemini haline geldi.</div>
+    </div>
+  </div>
+
+  <!-- YASSAIDA -->
+  <div class="topic olive">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">Hesaplaşma</div>
+        <h3>Yassıada Mahkemeleri: Tarihin Yargılanması</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>Darbenin ardından oluşturulan Yüksek Adalet Divanı, askeri kökenli kişilerden oluşturuldu. Yargıtay ve Danıştay gibi köklü yargı kurumlarının bu yapıya dahil edilmesi, yargılamaya meşruiyet kılığı giydirme girişimiydi; ancak yapının bağımsızlığı tartışmalıdır.</p>
+      <p>Adnan Menderes ve Celal Bayar başta olmak üzere eski iktidar mensupları yargılandı. Suçlamalar: 6-7 Eylül 1955 İstanbul Pogromu, Bebek Davası, İnönü'ye suikast girişimi, anayasayı ihlal ve görevi kötüye kullanma. Bunların bir kısmı hukuki açıdan tartışmalıydı.</p>
+      <div class="compare">
+        <div class="compare-box">
+          <h4>Mahkeme Kararları</h4>
+          <p>15 kişiye idam kararı verildi. Bu karar toplumda derin bir travma yarattı. Cemal Gürsel ve Alparslan Türkeş bile idam kararlarına sıcak bakmadı.</p>
+        </div>
+        <div class="compare-box">
+          <h4>Uygulanan İdamlar</h4>
+          <p>Adnan Menderes, Fatin Rüştü Zorlu ve Hasan Polatkan idam edildi. Celal Bayar'ın cezası yaşı nedeniyle ömür boyu hapse çevrildi.</p>
+        </div>
+      </div>
+      <p>MBK içinde "14'lükler" denen grup tasfiye edildi. Bu kişiler askeri yönetimi daha uzun süre devam ettirmek, Türkiye'yi köklü biçimde dönüştürmek isteyenlerdi; Alparslan Türkeş bu grubun önde gelen isimlerindendi. Devretmeyi savunanlar ağır bastı ve 14 kişi MBK'dan uzaklaştırıldı. DP dışındaki diğer siyasi partiler kapatılmadı — bu, darbenin tamamen iktidara el koymak değil, DP'yi tasfiye etmek amacı taşıdığını gösterir.</p>
+    </div>
+  </div>
+
+  <!-- 61 ANAYASASI -->
+  <div class="topic gold">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">Kurucu Metin</div>
+        <h3>1961 Anayasası: Türkiye'nin En Liberal Anayasası</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>MBK anayasayı onayladı; referandumda %62 oranında evet oyu alarak meşruiyet kazandı. 1924 Anayasası lağvedildi. Hazırlık sürecinde hukukçular, akademisyenler ve sivil toplum temsilcileri geniş ölçüde katılım sağladı.</p>
+      <div class="grid3">
+        <div class="grid3-item"><strong>Güçler Ayrılığı</strong><p>Yasama, yürütme ve yargı birbirinden net çizgilerle ayrıştırıldı.</p></div>
+        <div class="grid3-item"><strong>Çoğulcu Demokrasi</strong><p>Toplumun azınlık kesimlerini koruyacak güvenceler getirildi. Çoğunlukçuluk sınırlandırıldı.</p></div>
+        <div class="grid3-item"><strong>Temel Hak Güvencesi</strong><p>Düşünce, ifade, örgütlenme ve basın özgürlükleri anayasal güvence altına alındı.</p></div>
+        <div class="grid3-item"><strong>Sosyal Devlet</strong><p>Devlet, yurttaşların sosyal refahını sağlamakla yükümlü kılındı. Sendika kurma, grev hakkı, çalışma hakkı ve ücret güvencesi tanındı.</p></div>
+        <div class="grid3-item"><strong>İthal İkameci Politika</strong><p>Sosyal devlet anlayışının ekonomik ayağını DPT eliyle yürütülen planlı ekonomi oluşturdu.</p></div>
+        <div class="grid3-item"><strong>Çift Meclis Sistemi</strong><p>Cumhuriyet Senatosu + Büyük Millet Meclisi. Senato BMM'yi denetledi; MBK üyeleri senatoya doğal üye sıfatıyla dahil edildi.</p></div>
+      </div>
+      <p><strong>Yeni Kurumlar:</strong> Anayasa Mahkemesi (yasaların anayasaya uygunluğunu denetler), Devlet Planlama Teşkilatı (ithal ikameci kalkınma planları), TRT (özerk yayıncılık), Milli Güvenlik Kurulu (ordunun yürütme organındaki kurumsal varlığı).</p>
+      <div class="fact-box"><strong>Bu Anayasa Neden Önemliydi?</strong> 61 Anayasası, Türkiye'nin o güne kadar ürettiği en özgürlükçü anayasal metindi. Siyasi parti çoğulculuğu, üniversite özerkliği, sendikacılık ve sol siyasi hareketler bu anayasa sayesinde yasal zemin buldu. TİP, DİSK gibi yapılar bu güvencelerle var olabildi. 82 Anayasası birçok bu kazanımı törpüleyecektir.</div>
+    </div>
+  </div>
+
+  <!-- 61-69 SİYASİ TABLO -->
+  <div class="topic">
+    <div class="topic-band" style="background:var(--olive);">
+      <div>
+        <div class="band-label">1961–1969</div>
+        <h3>Çok Partili Rekabet, Darbe Girişimleri ve Dış Baskılar</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>Genel seçimler çok partili bir rekabet ortamında gerçekleşti. TİP (Türkiye İşçi Partisi) ve MHP (Milliyetçi Hareket Partisi) bu dönemde sahneye çıktı. Cemal Gürsel cumhurbaşkanı seçildi. MBK, CHP'yi desteklemesine karşın Ragıp Gümüşbala'nın kurduğu Adalet Partisi, DP'nin mirasçısı olarak hızla güçlendi ve seçimlerde birinci oldu.</p>
+      <p><strong>Talat Aydemir:</strong> 27 Mayıs darbesinin amacına ulaşmadığını savunan Aydemir, iki kez darbeye kalkıştı ve sonunda idam edildi. MBK'dan tasfiye edilen 14'lüklerle aynı görüşteydi: Askerî yönetim sürmeliydi.</p>
+
+      <table class="data-table">
+        <thead><tr><th>Olay</th><th>Tarih</th><th>Önemi</th></tr></thead>
+        <tbody>
+          <tr><td>Küba Füze Krizi</td><td>1962</td><td>Soğuk Savaş'ta nükleer savaş eşiğine gelindi. Türkiye'deki Jupiter füzeleri krizin merkezindeydi.</td></tr>
+          <tr><td>Ankara Anlaşması</td><td>1963</td><td>Türkiye için AB üyeliğine giden yolun ilk adımı; ekonomik entegrasyon çerçevesi hazırlandı.</td></tr>
+          <tr><td>Kıbrıs Sorunu</td><td>1963-64</td><td>Kanlı Noel saldırısı; Rumlar Türklere saldırdı. Türkiye ABD'den aldığı teçhizatı kullanamadı.</td></tr>
+          <tr><td>Johnson Mektubu</td><td>1964</td><td>ABD, Türkiye'nin Kıbrıs'a müdahalesi halinde NATO güvencesini geri çekeceğini ima etti. Türk dış politikasında tarihsel kırılma.</td></tr>
+          <tr><td>TİP Parlamentoya Girdi</td><td>1965</td><td>Mehmet Ali Aybar liderliğindeki TİP, tarihte ilk kez sol bir parti olarak mecliste yer aldı.</td></tr>
+          <tr><td>CHP'de "Ortanın Solu"</td><td>1965-69</td><td>Bülent Ecevit daha geniş kitlelere hitap eden merkez-sol söylemi geliştirdi.</td></tr>
+          <tr><td>MHP ve MNP Kuruldu</td><td>1969-70</td><td>Alparslan Türkeş MHP'yi, Necmettin Erbakan Milli Nizam Partisi'ni (Milli Görüş'ün çekirdeği) kurdu.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="fact-box"><strong>10 Ağustos 1970 Devalüasyonu:</strong> Ekonomik kriz ve ithal ikameci modelin yarattığı döviz sıkıntısı, Türk lirasının yeniden devalüasyonunu zorunlu kıldı. DP'lilere siyasi haklar bu dönemde iade edilmişti; AP hızla güçleniyordu.</div>
+    </div>
+  </div>
+
+</section>
+<div class="ornament">— · —</div>
+
+<!-- ===================================================
+     70'LER
+     =================================================== -->
+<section class="era" id="yetmisler">
+  <div class="era-header">
+    <div class="era-number">70</div>
+    <div class="era-title-block">
+      <h2>Kaos ve Muhtıra</h2>
+      <p class="era-tagline">1970–1979 · 12 Mart · Şiddet · Koalisyonlar · Petrol Krizi</p>
+    </div>
+  </div>
+
+  <!-- 12 MART MUHTIRASI -->
+  <div class="topic red">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">12 Mart 1971</div>
+        <h3>Muhtıra: Darbeden Farklı Bir Müdahale Biçimi</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>Muhtıra ihtar demektir; yani açık bir uyarı, dolaylı bir tehdit. Bir darbenin habercisi ve daha hafif biçimidir. Silah kullanılmaz; ancak silahın gölgesinde iktidar el değiştirir. 12 Mart 1971 muhtırası bu tanımın tam karşılığıdır.</p>
+      <div class="pull-quote">"Muhtıra, askerin iktidar üzerindeki velayetini silah kullanmadan pekiştirdiği bir araçtır."</div>
+      <p><strong>Neden Muhtıra, Neden Darbe Değil?</strong> Çünkü askerin amacı tam anlamıyla iktidarı ele geçirmek değil, belirli siyasi aktörleri tasfiye etmek ve sistemi "düzeltmek"ti. 60'taki gibi bir idari boşluğa girmek istemiyorlardı; sivil bir hükümet kuracak, ama bu hükümeti ordu denetleyecekti.</p>
+      <div class="causes">
+        <div class="cause-item"><div class="cause-num">1</div><div><p><strong>9 Mart Tehlikesi:</strong> Solcu askerlerin oluşturduğu grup, 9 Mart 1971'de darbe yapmayı planlıyordu. Üst komuta bu planı öğrendi ve onları önlemek için kendisi harekete geçti. Bu açıdan 12 Mart hem sol hem de sağ bir "önleyici darbe" olarak değerlendirilebilir.</p></div></div>
+        <div class="cause-item"><div class="cause-num">2</div><div><p><strong>Adalet Partisi'nin Varlığı:</strong> Demirel'in AP'si DP'nin devamı olarak algılanıyordu. Tek başına iktidar kurması ve orduyla yeterince mesafeyi koruması askeri çevrelerde rahatsızlık yarattı.</p></div></div>
+        <div class="cause-item"><div class="cause-num">3</div><div><p><strong>Ekonomi Çöküyor:</strong> İşçi grevleri ve eylemler ekonomiyi felç etti. 15-16 Haziran 1970 büyük işçi eylemleri sonrası ekonomik kriz kaçınılmaz görünüyordu.</p></div></div>
+        <div class="cause-item"><div class="cause-num">4</div><div><p><strong>Toplumsal Kaos:</strong> Sağ-sol kutuplaşması derinleşmişti; öğrenci gösterileri bastırılamıyordu. Banka soygunları, kaçırmalar ve silahlı eylemler gündelik haber haline gelmişti.</p></div></div>
+        <div class="cause-item"><div class="cause-num">5</div><div><p><strong>DP'lilere Hakların İadesi:</strong> DP mensuplarına siyasi hakların geri verilmesi, darbe sonrası yapılan hesaplaşmanın anlamsızlaştırılması olarak değerlendirildi.</p></div></div>
+      </div>
+
+      <p><strong>Muhtıranın Sonuçları:</strong></p>
+      <ul class="timeline-list">
+        <li><span class="year">1971</span>Demirel istifa etti. TSK onayıyla Nihat Erim Başbakan oldu — Türkiye'nin ilk teknokrat hükümeti.</li>
+        <li><span class="year">1971-73</span>Seçim yapılmadı. Nihat Erim iki hükümet kurdu; her ikisi de TSK onayıyla atandı.</li>
+        <li><span class="year">1971</span>Balyoz Harekâtı: Solcu öğrenciler toplu tutuklandı. TİP ve DİSK de hedef alındı.</li>
+        <li><span class="year">1971</span>Deniz Gezmiş, Yusuf Aslan ve Hüseyin İnan'a idam kararı çıktı; 1972'de infaz edildi.</li>
+        <li><span class="year">1971</span>Anayasa değişiklikleri: Milli güvenlik ve kamu düzeni gerekçesiyle kısıtlamalar artırıldı; özgürlükçü atmosfer törpülendi.</li>
+        <li><span class="year">1973</span>Fahri Korutürk Cumhurbaşkanı seçildi.</li>
+      </ul>
+      <div class="fact-box"><strong>Paradoks:</strong> Solcu örgütlere yapılan toplu tutuklamalar, hareketi söndürmek yerine radikalleştirdi. Baskı altında illegal örgütlenen gruplar daha sert bir çizgiye kaydı. 70'lerin ikinci yarısındaki şiddet sarmalının tohumları bu dönemde atıldı.</div>
+    </div>
+  </div>
+
+  <!-- 70'LER GENEL -->
+  <div class="topic slate">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">1974–1980</div>
+        <h3>Koalisyonlar, Kıbrıs ve Siyasi Şiddetin Tırmanması</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>1974'te Ecevit CHP-MSP koalisyonunu kurdu. Bu olağandışı birlikteliğin iki önemli mirası vardır: Kıbrıs Barış Harekâtı ve haşhaş yasağının kaldırılması. Harekât, ABD ile açık bir anlaşmazlık yarattı; Amerikalılar Türkiye'ye silah ambargosu uyguladı.</p>
+
+      <table class="data-table">
+        <thead><tr><th>Dönem</th><th>Hükümet</th><th>Temel Gelişmeler</th></tr></thead>
+        <tbody>
+          <tr><td>1974</td><td>Ecevit (CHP-MSP)</td><td>Kıbrıs Harekâtı, haşhaş yasağı kalkması, ABD ambargosu.</td></tr>
+          <tr><td>1975-77</td><td>1. Milliyetçi Cephe (AP, MHP, MSP, CGP)</td><td>Kadrolaşma ve liyakatsizlik arttı; ekonomik kriz derinleşti.</td></tr>
+          <tr><td>1977-78</td><td>2. Milliyetçi Cephe (AP, MSP, MHP)</td><td>Siyasi şiddet ve kutuplaşma zirve yaptı. Kanlı 1 Mayıs.</td></tr>
+          <tr><td>1978-79</td><td>Ecevit (CHP azınlık)</td><td>Güneş Motel Olayı; AP'li mv. CHP'ye geçti. Suikast ve katliamlar.</td></tr>
+          <tr><td>1979-80</td><td>Demirel (AP azınlık)</td><td>Cumhurbaşkanlığı seçim krizi. Ekonomik çöküş.</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Petrol Krizi ve Ekonomi:</strong> 1973 Petrol Krizi dünyayı sarstı; Keynesyen ekonomik model çöktü ve neoliberalizm yükselişe geçti. Türkiye bu krizin etkisini 1977'ye kadar öteleyebildi; çünkü gurbetçilerden gelen döviz transferleri bir emniyet supabı işlevi gördü. 77-80 arası ekonomik bunalım, karaborsa ve siyasi istikrarsızlık iç içe geçti.</p>
+      <div class="fact-box"><strong>Güneş Motel Olayı:</strong> AP milletvekilleri Güneş Motel'de toplantı yaparak toplu biçimde Ecevit'e destek verdi ve CHP saflarına geçti. Bu olay siyasi ihanet olarak algılandı; Türk siyasetinde "motel politikası" deyiminin doğmasına yol açtı.</div>
+    </div>
+  </div>
+
+  <!-- TOPLUMSAL 70 -->
+  <div class="topic olive">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">Toplum ve Kültür</div>
+        <h3>Şiddet, Göç, Arabesk ve Siyasi Kıyafet</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p><strong>Göç ve Gecekondulaşma:</strong> Almanya başta olmak üzere Avrupa'ya işçi göçü hızlandı. Gurbetçilerin gönderdiği dövizler ekonomiyi ayakta tuttu. Eş zamanlı olarak köyden kente göç işçi fazlalığı ve gecekondu mahallelerinin hızla büyümesine yol açtı. Bu demografik dönüşüm siyasal kutuplaşmaya katkıda bulundu: Kentlerin çeperlerine yerleşen kitleler hem siyasi açıdan seferber edilebildi hem de toplumsal kırılganlık taşıdı.</p>
+
+      <p><strong>Toplumsal Çatışma:</strong> THKP-C (sol) ile Ülkü Ocakları (sağ) arasındaki silahlı mücadele; Kanlı 1 Mayıs 1977; Çorum ve Kahramanmaraş katliamları. 70'ler, günlük onlarca insanın siyasi şiddet nedeniyle hayatını kaybettiği bir dönemdir. Bu kaos ortamı 80 darbesinin toplumsal meşruiyet kılıfı olacaktır.</p>
+
+      <div class="compare">
+        <div class="compare-box">
+          <h4>Sol Örgütler</h4>
+          <p>Dev-Yol, Dev-Sol, THKP-C. Banka soygunları, kaçırmalar, silahlı eylemler. 1968 kuşağının radikalleşmiş hali.</p>
+        </div>
+        <div class="compare-box">
+          <h4>Sağ Örgütler</h4>
+          <p>Ülkü Ocakları, Komünizmle Mücadele Derneği. Devlet himayesinde faaliyet yürüttükleri iddiaları. "Bozkurtlar."</p>
+        </div>
+      </div>
+
+      <p><strong>Arabesk Müzik:</strong> 70'lerde arabesk müzik adeta parlayan bir yıldızdı. Orhan Gencebay, Ferdi Tayfur, Müslüm Gürsel gibi isimler milyonların sesi oldu. Arabesk; kırdan kente göç eden, modern kentle bütünleşemeyen, yalnızlaşan ve kadercilik duygusuna sığınan kitlelerin müziğiydi. TRT bu müziği "pesimist" ve "zararlı" bularak yasakladı; bu yasak arabeskin popülaritesini daha da artırdı.</p>
+
+      <p><strong>Kıyafetle Siyaset:</strong> 70'lerde kıyafet tarzı doğrudan siyasi kimliğin göstergesiydi. Solcu gençler dağınık saç, uzun sakal ve bıyık taşıyor; ispanyol paça pantolon ve polyester kumaş giyiyordu. Sağcılar ise daha muhafazakâr bir giyim anlayışını benimsiyordu. Bu görsel ayrışma kamusal mekânda sürekli bir gerginlik ortamı yarattı.</p>
+
+      <div class="fact-box"><strong>1968 Kuşağı ve Türkiye:</strong> Fransa'dan dalga dalga yayılan öğrenci hareketleri Türkiye'ye radikalleşme ve militanlaşma biçiminde yansıdı. Banka Soygunları ve İsrail Büyükelçisi'nin kaçırılması bu dönemin simge eylemleridir. 1969 Kanlı Filo olayında sağcı ve solcu öğrenciler Dolmabahçe'de çatıştı. İzmit İşçi Ayaklanması ve DİSK'in kuruluşu işçi sınıfının örgütlenme tarihinin önemli anlarıdır.</div>
+    </div>
+  </div>
+
+</section>
+<div class="ornament">— · —</div>
+
+<!-- ===================================================
+     80'LER
+     =================================================== -->
+<section class="era" id="seksenler">
+  <div class="era-header">
+    <div class="era-number">80</div>
+    <div class="era-title-block">
+      <h2>Neoliberal Dönüşüm</h2>
+      <p class="era-tagline">1980–1989 · 12 Eylül Darbesi · 1982 Anayasası · Özal ve ANAP</p>
+    </div>
+  </div>
+
+  <!-- 12 EYLÜL -->
+  <div class="topic red">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">12 Eylül 1980</div>
+        <h3>Üst Rütbeli Subayların Darbesi: 60'tan Köklü Farklılıklar</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>12 Eylül 1980 darbesi, Türkiye tarihindeki en kapsamlı askeri müdahaledir. 60 darbesinden farklı olarak bu sefer darbeyi gerçekleştirenler üst rütbeli subaylar ve Genelkurmay'dır; tamamen Milli Güvenlik Konseyi çatısı altında, sistematik ve koordineli biçimde örgütlendi.</p>
+
+      <div class="compare">
+        <div class="compare-box">
+          <h4>27 Mayıs 1960</h4>
+          <p>Alt-orta rütbeli subaylar. Emir-komuta dışı. Genelkurmay destek vermedi. Senkronize harekât yoktu. DP dışı partiler kapatılmadı.</p>
+        </div>
+        <div class="compare-box">
+          <h4>12 Eylül 1980</h4>
+          <p>Üst rütbeli subaylar, Genelkurmay. Tamamen MGK koordinasyonu. TV yayınları ele geçirildi. Tüm partiler kapatıldı. 50 sivil idam edildi.</p>
+        </div>
+      </div>
+
+      <div class="causes">
+        <div class="cause-item"><div class="cause-num">1</div><div><p><strong>Siyasi İstikrarsızlık:</strong> Koalisyon hükümetleri ardı ardına çöküyor, cumhurbaşkanlığı seçim krizi çözümsüz kalıyordu. Meclis cumhurbaşkanı seçememişti.</p></div></div>
+        <div class="cause-item"><div class="cause-num">2</div><div><p><strong>Toplumsal Anarşi:</strong> Dev-Yol/Dev-Sol (sol) ile Ülkü Ocakları ve Komünizmle Mücadele Derneği (sağ) arasındaki silahlı çatışmalar günde onlarca kişiyi öldürür hale gelmişti. Toplumsal doku paramparçaydı.</p></div></div>
+        <div class="cause-item"><div class="cause-num">3</div><div><p><strong>Yüksek Enflasyon ve Ekonomik Kriz:</strong> Üç haneli enflasyon, mal kıtlığı ve karaborsa ekonomik yaşamı felç etmişti. 24 Ocak 1980'de Özal'ın hazırladığı istikrar paketi uygulamaya konulmuştu; ancak siyasi istikrarsızlık bu reformların hayata geçirilmesini engelliyordu.</p></div></div>
+      </div>
+
+      <p><strong>Darbenin Uygulamaları:</strong> TV ve radyo yayınları anında ele geçirildi. Parlamento feshedildi. 60'ların aksine tüm siyasi partiler kapatıldı. 1961 Anayasası lağvedildi. Yalnızca eski siyasetçiler değil, binlerce sivil, gazeteci, akademisyen ve aydın gözaltına alındı. Aydınlar Bildirgesi'ne imza atanlar tutuklandı. 50 sivil idam edildi; yüz binlerce kişi gözaltından geçti.</p>
+      <div class="fact-box"><strong>Uluslararası Boyut:</strong> Soğuk Savaş'ın en gergin döneminde gerçekleşen bu darbe, NATO müttefiki olan Batılı ülkeler tarafından büyük ölçüde sessizlikle karşılandı. ABD'nin darbeyi önceden bildiğine dair iddialar bugün hâlâ tartışılmaktadır. Kenan Evren, "Merhaba" diye karşıladığına dair anlatı dönemin simgesi haline gelmiştir.</div>
+    </div>
+  </div>
+
+  <!-- 1982 ANAYASASI -->
+  <div class="topic slate">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">Kurucu Metin</div>
+        <h3>1982 Anayasası: Güvenlikçi ve Kısıtlamacı Bir Çerçeve</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>Milli Güvenlik Konseyi denetiminde hazırlanan 1982 Anayasası, gerçek anlamda bir kurucu meclis olmaksızın oluşturuldu. Kuvvetler ayrılığı, çoğulcu demokrasi ve sosyal devlet ilkeleri yazılı olarak korundu; ancak haklar ve özgürlükler 1961 Anayasası'na kıyasla önemli ölçüde daraltıldı.</p>
+      <p>Referandumda %91 oranında evet oyu çıktı. Ancak bu oran, Kenan Evren'in "Hayır oy kullanırsanız cunta daha uzun kalır" tehdidi altında elde edildi; referandumda hayır propagandası yapılması yasaklanmıştı.</p>
+      <div class="grid3">
+        <div class="grid3-item"><strong>Din Eğitimi Zorunlu</strong><p>Din dersleri müfredatta zorunlu hale getirildi. Devlet, sol ideolojilere karşı dini bir denge unsuru olarak konumlandırdı.</p></div>
+        <div class="grid3-item"><strong>Siyasi Yasaklar</strong><p>Eski siyasetçilere 10 yıllık siyasi yasak getirildi. Bu yasak 1987 referandumuyla kaldırıldı.</p></div>
+        <div class="grid3-item"><strong>Devletçi → Liberal</strong><p>Anayasa ekonomik açıdan devletçi modelden piyasa ekonomisine geçişi kolaylaştıracak bir çerçeve çizdi.</p></div>
+      </div>
+      <p><strong>Tarikatlar ve Cemaat Politikası:</strong> Devlet, solcu ideolojilere karşı tarikat ve cemaatleri bilinçli olarak destekledi. "Dini kullanarak ayaklanmaları durdururuz" mantığı devletin örtük politikası haline geldi. Bu politika Türk-İslam Sentezi çerçevesinde sistematik bir ideolojik proje olarak uygulandı. 80-82 arası Bülent Ulusu Başbakandı; neoliberal ekonomiye geçiş bu dönemde hız kazandı.</p>
+    </div>
+  </div>
+
+  <!-- ÖZAL -->
+  <div class="topic gold">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">Turgut Özal ve ANAP</div>
+        <h3>Türkiye'yi Neoliberalizme Bağlayan Adam</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>12 Eylül askeri rejiminin kontrolünde yürütülmesi planlanan demokrasiye geçiş süreci, Turgut Özal'ın 1983 seçimlerinde beklenmedik bir zafer kazanmasıyla sekteye uğradı. Askeri yönetim, Özal'ın önünü kapatmaya çalışmış; ancak seçimler bu iradeyi geçersiz kıldı.</p>
+      <p>ANAP ideolojik açıdan olağandışı bir bileşimdi: Milliyetçi, muhafazakâr, liberal ve sosyal demokrat dört eğilimi tek çatı altında topladı. "Orta direk" söylemi geniş bir seçmen kitlesine hitap etti.</p>
+      <ul class="timeline-list">
+        <li><span class="year">1982</span>Özal ANAP'ı kurdu.</li>
+        <li><span class="year">1983</span>Genel seçimlerde ANAP birinci oldu; Özal Başbakan.</li>
+        <li><span class="year">1987</span>Referandum: Eski siyasetçilere getirilen yasak kaldırıldı. Demirel, Ecevit, Erbakan, Türkeş siyasete döndü.</li>
+        <li><span class="year">1987</span>Yeni partiler kuruldu; çok partili rekabet yeniden canlandı.</li>
+        <li><span class="year">1989</span>Özal Cumhurbaşkanı seçildi — Türkiye'nin ilk sivil cumhurbaşkanı oldu.</li>
+      </ul>
+      <p><strong>Neoliberal Paketin İçeriği:</strong> Kamu işletmeleri özelleştirildi. Yabancı yatırıma kapılar açıldı (McDonald's bu dönemde Türkiye'ye geldi). Küreselleşme ve altyapı yatırımları öncelenildi (FSM Köprüsü). İhracatı teşvik eden bir ekonomi inşa edildi. Yeni bir iş insanları sınıfı ortaya çıktı. "Trickle down" mantığı benimsendi: Yatırımcı zenginleşirse üretim artar ve refah tabana yayılır.</p>
+      <div class="fact-box"><strong>Türk-İslam Sentezi:</strong> Milliyetçileri ve ümmetçileri birleştirmeyi hedefleyen bu ideoloji, Türklük tanımına Müslümanlığı ekledi. 1979 İran Devrimi'nin yarattığı dalgadan ders çıkaran Türk devleti, dini solcu ayaklanmalara karşı araçsallaştırdı. Turgut Özal Nakşibendiydi; tarikatlar bürokraside güçlendi. Bu politikanın uzun vadeli siyasal sonuçları 90'larda ve 2000'lerde kendini gösterecektir.</div>
+    </div>
+  </div>
+
+  <!-- TOPLUM KÜLTÜR 80 -->
+  <div class="topic">
+    <div class="topic-band" style="background:var(--ink);">
+      <div>
+        <div class="band-label">Toplum ve Kültür</div>
+        <h3>Apolitik Nesil, Tüketim Toplumu ve PKK</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p><strong>Apolitikleşme:</strong> Darbe sonrası nesil siyasetten bilinçli olarak uzak durdu. Siyasi örgütlere, sendikalara, derneklere katılım dramatik biçimde düştü. 70'lerin kavgalı atmosferinden yorulmuş, travma yaşamış bir toplum söz konusuydu. Bu "apolitik nesil" anlayışı 80'ler boyunca egemen kaldı.</p>
+      <p><strong>Tüketim Toplumunun Doğuşu:</strong> Neoliberal ekonomiyle birlikte tüketim kültürü toplumsal değerlerin merkezine oturdu. Bakkal düzeni yıkıldı, market çağı başladı. Hazır giyim yaygınlaştı; "imaj her şey" ve karizme söylemi gündelik dile girdi. Taksit uygulaması tüketimi olağanüstü kolaylaştırdı. "Harca ve statün artsın" mantığı egemen oldu.</p>
+      <p><strong>PKK ve Kürt Meselesi:</strong> 1984'te PKK silahlı eylemlerine başladı. 70'lerin sağ-sol eksenindeki kutuplaşmanın yerini Türk-Kürt ayrımının belirginleşmesi aldı. Doğu Anadolu'dan Batı'ya zorunlu göç başladı; Derin Devlet Kürt siyasi partilerini engelledi. ASALA ise bu dönemde radikal Ermeni gruplarınca örgütlendi; Türk diplomatlarına yönelik saldırılar gerçekleştirildi.</p>
+      <div class="compare">
+        <div class="compare-box">
+          <h4>Kültürel Açılım</h4>
+          <p>Disco ve tavernalar, özgün müzik (Ahmet Kaya, Zülfü Livaneli). Televizyon herkesin evine girdi; beyaz eşyanın ucuzlaması bunu kolaylaştırdı. TRT monopolü devam etti; yeni diziler çekildi. Tüketimi teşvik eden reklamlar ekranlara girdi.</p>
+        </div>
+        <div class="compare-box">
+          <h4>Kültürel Kısıtlama</h4>
+          <p>Sahne yasakları uygulandı. Arabesk TRT'de yasaklandı. Bülent Ersoy'a sahne yasağı geldi; Londra'ya gitti. Erkeklerin kadın kıyafeti giyerek eğlenmesi yasaklandı. Atari salonları açıldı.</p>
+        </div>
+      </div>
+      <p><strong>Sinema:</strong> 70'lerin toplumsal gerçekçi sinemasından 80'lerin bireyin psikolojisine odaklanan filmlerine geçiş yaşandı. Feminist filmler, kimlik siyaseti, rüşvet sistemini eleştiren yapımlar ve hicivli komedi bu dönemin öne çıkan türleridir. VHS video kaset sinema izleme alışkanlığını kökten değiştirdi.</p>
+      <div class="fact-box"><strong>Kıyafet:</strong> Kot pantolon, kot ceket, deri ceket, vatkalı gömlek, krepe saç ve "toyT" tişört 80'lerin simge giyim unsurları haline geldi. İspanyol paça ve polyester dönemi kapandı.</div>
+    </div>
+  </div>
+
+</section>
+<div class="ornament">— · —</div>
+
+<!-- ===================================================
+     90'LAR
+     =================================================== -->
+<section class="era" id="doksanlar">
+  <div class="era-header">
+    <div class="era-number">90</div>
+    <div class="era-title-block">
+      <h2>Kaos Ondalığı</h2>
+      <p class="era-tagline">1990–1999 · 12 Hükümet · 28 Şubat · Faili Meçhuller · Deprem</p>
+    </div>
+  </div>
+
+  <!-- SİYASİ İSTİKRARSIZLIK -->
+  <div class="topic red">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">Siyasi Tablo</div>
+        <h3>On Yılda 12 Hükümet: Kronik İstikrarsızlığın Anatomisi</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>90'lar, Türkiye siyasetinde on yılda 12 hükümetin kurulduğu olağanüstü bir istikrarsızlık dönemidir. Bu durum; ekonomik reformları uygulamayı, uzun vadeli politika üretmeyi ve devlet kurumlarını etkin yönetmeyi neredeyse imkânsız kıldı.</p>
+
+      <div class="highlight-row">
+        <div class="hr-item"><span class="hr-val">12</span><span class="hr-label">90-99 arası hükümet</span></div>
+        <div class="hr-item"><span class="hr-val">%150</span><span class="hr-label">94 yılı enflasyon</span></div>
+        <div class="hr-item"><span class="hr-val">17.000+</span><span class="hr-label">PKK çatışmasında kayıp</span></div>
+        <div class="hr-item"><span class="hr-val">17 Ağustos</span><span class="hr-label">1999 depremi</span></div>
+      </div>
+
+      <table class="data-table">
+        <thead><tr><th>Yıl</th><th>Hükümet/Olay</th><th>Notu</th></tr></thead>
+        <tbody>
+          <tr><td>1991</td><td>Genel Seçimler</td><td>Doğru Yol Partisi iktidara geldi. DYP-SHP koalisyonu.</td></tr>
+          <tr><td>1993</td><td>Özal Öldü</td><td>Faili meçhul şüpheleri. Demirel Cumhurbaşkanı, Çiller Başbakan.</td></tr>
+          <tr><td>1993</td><td>Faili Meçhuller</td><td>Adnan Kahveci, Uğur Mumcu, Musa Anter. Madımak Katliamı.</td></tr>
+          <tr><td>1994</td><td>5 Nisan Kararları</td><td>Çok sıkı kemer sıkma; devalüasyon, enflasyon, işten çıkarmalar.</td></tr>
+          <tr><td>1994</td><td>Yerel Seçimler</td><td>İstanbul'da Erdoğan, Ankara'da Gökçek belediye başkanı seçildi.</td></tr>
+          <tr><td>1995</td><td>Genel Seçimler</td><td>Refah Partisi birinci oldu. Refah-Yol koalisyonu (Erbakan-Çiller).</td></tr>
+          <tr><td>1997</td><td>28 Şubat</td><td>Postmodern darbe; Erbakan istifaya zorlandı.</td></tr>
+          <tr><td>1999</td><td>17 Ağustos Depremi</td><td>17.000'den fazla ölü. Devlete güven sarsıldı.</td></tr>
+          <tr><td>1999</td><td>AB Adaylığı</td><td>Helsinki Zirvesi'nde Türkiye aday ülke ilan edildi.</td></tr>
+        </tbody>
+      </table>
+
+      <p><strong>Susurluk Skandalı (1996):</strong> Bir trafik kazasında aynı araçta bir milletvekili, bir emniyet müdürü ve mafya figürü Abdullah Çatlı hayatını kaybetti. Bu kaza devlet, mafya ve siyaset üçgenini gün yüzüne çıkardı. Susurluk, uzun süredir fısıltıyla konuşulan "derin devlet" kavramının somut kanıtı haline geldi.</p>
+
+      <div class="fact-box"><strong>Faili Meçhul Cinayetler:</strong> 1993 Türkiye'si için simgesel bir yıldır. Aydın ve gazeteciler hedef alındı. JİTEM'in (jandarma istihbarat), PKK ile mücadele adına gerçekleştirdiği iddia edilen yargısız infazlar toplumsal hafızada derin izler bıraktı. "Cumartesi Anneleri" bu kayıpların hesabını sormak için her cumartesi Galatasaray Meydanı'nda bir araya geldi.</div>
+    </div>
+  </div>
+
+  <!-- 28 ŞUBAT -->
+  <div class="topic slate">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">28 Şubat 1997</div>
+        <h3>Postmodern Darbe: Ordu Sivil Toplumu ve Yargıyı Mobilize Etti</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>28 Şubat, dünya siyasi tarihinde "postmodern darbe" kavramının tanımlandığı süreçlerden biridir. Tanklar yürüdü; ancak fiilen iktidara el konulmadı. Hükümet zor yoluyla değil, birikimli baskıyla istifaya zorlandı.</p>
+
+      <p><strong>Sincan Olayı — Fitil:</strong> RP'li Sincan Belediye Başkanı, "Kudüs Gecesi" etkinliği düzenledi; İran büyükelçisi laiklik aleyhine konuşma yaptı. Bunun üzerine 4 Şubat 1997'de tanklar Sincan'dan geçirildi. Bu, açık bir askeri gözdağıydı.</p>
+
+      <div class="pull-quote">"28 Şubat'ın asıl gücü, ordu yalnız değildi: Medya, iş dünyası, yargı ve sivil toplum kuruluşları bu sürece ortak edildi."</div>
+
+      <p><strong>MGK Ultimatomu (28 Şubat 1997):</strong> Milli Güvenlik Kurulu tavsiye bildirisi değil, kesin bir ultimatom sundu. En kritik madde 8 yıllık kesintisiz zorunlu eğitimdi; bu madde imam hatip ortaokullarını fiilen kapatıyordu. Ordu sivil toplumu, medyayı ve yargıyı sürece dahil etti — bu yüzden "postmodern" sıfatını aldı.</p>
+
+      <div class="grid3">
+        <div class="grid3-item"><strong>Eğitim Kısıtlaması</strong><p>8 yıllık kesintisiz zorunlu eğitim; imam hatip ortaokulları kapatıldı.</p></div>
+        <div class="grid3-item"><strong>Başörtüsü Yasağı</strong><p>Üniversitelerde ve kamuda başörtüsü yasağı genişletildi ve sertleştirildi.</p></div>
+        <div class="grid3-item"><strong>Vakıf-Tarikat Denetimi</strong><p>Tarikata bağlı yurt, vakıf ve okullar MEB'e devredildi.</p></div>
+      </div>
+
+      <p><strong>Siyasi Sonuç:</strong> Erbakan istifaya zorlandı. Refah Partisi kapatıldı. Erdoğan İstanbul'da "Minare kılıç" şiiri okuması nedeniyle yargılandı ve hapse girdi; siyasi yasak getirildi. Ancak bu tasfiye, İslami siyaseti güçsüzleştirmek yerine radikalleştirdi; AK Parti 2001'de kuruldu.</p>
+
+      <div class="fact-box"><strong>Toplumsal Fay Hatları:</strong> 90'lar Türkiye'sinde toplumsal çatışma üç eksen üzerinde yürüdü: Sağ-Sol (70'lere kıyasla daha az yoğun), Alevi-Sünni ve Kürt-Türk. Madımak Katliamı (Pir Sultan Abdal anma töreninden sonra otel ateşe verildi) Alevi-Sünni geriliminin en kanlı sayfalarından birini yazdı.</div>
+    </div>
+  </div>
+
+  <!-- EKONOMİ 90 -->
+  <div class="topic olive">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">Ekonomi</div>
+        <h3>Ötelenen Kriz Patlıyor: 94, Enflasyon ve Gümrük Birliği</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>80'lerde ötelenen ekonomik kırılganlıklar 90'larda birikimli olarak patladı. 5 Nisan 1994 Kararları bu kırılmanın en sert anını temsil eder: Türk lirası kısa sürede büyük değer kaybetti, enflasyon yüzde yüzü aştı, işe alımlar durduruldu, kamu harcamaları keskin biçimde kısıldı.</p>
+      <p><strong>Gümrük Birliği (1996):</strong> Türkiye AB ile gümrük birliği anlaşması imzalayarak gümrük uygulamalarında tam entegrasyon sağladı. Bu, AB üyelik sürecinde önemli bir adımdı; ancak siyasi üyelik müzakereleri birçok iç ve dış faktör nedeniyle ilerleme kaydedemiyordu.</p>
+      <p><strong>Kürt Siyaseti ve Ekonomi:</strong> PKK ile süregelen çatışma güneydoğudaki yatırımları engelledi; zorunlu göç bölgeyi boşalttı. HEP ve DEP partileri kapatıldı. Çelik Harekât ile sınır ötesi askeri operasyonlar gerçekleştirildi. JİTEM tartışmaları dönemin iç güvenlik politikasının karanlık yüzüdür.</p>
+      <div class="fact-box"><strong>17 Ağustos 1999 Depremi:</strong> 17.000'den fazla insanın hayatını kaybettiği bu felaket, devlet kurumlarının ve altyapının ne kadar kırılgan olduğunu acımasız biçimde ortaya koydu. Deprem sonrasındaki koordinasyon eksikliği, devlete duyulan güveni ciddi ölçüde sarstı. Bu sarsılma, 2001'deki ekonomik kriz ve 2002 seçimlerindeki büyük siyasal değişimin zeminini hazırladı.</div>
+    </div>
+  </div>
+
+  <!-- KÜLTÜR 90 -->
+  <div class="topic gold">
+    <div class="topic-band">
+      <div>
+        <div class="band-label">Kültür ve Medya</div>
+        <h3>Kültür Endüstrisi: TRT Tekelinin Sonu, Pop'un Yükselişi</h3>
+      </div>
+    </div>
+    <div class="topic-inner">
+      <p>90'lar Türkiye'sinde kültür alanında köklü bir dönüşüm yaşandı. Sanat eseri, metalara dönüştü; kültür endüstrisi kavramı hayatın her alanına sızdı. Özel kanallar (Star TV, Show TV) ve özel radyolar (Kral FM, Super FM) TRT'nin onlarca yıllık tekelini kırdı.</p>
+      <p><strong>Pop Müziğin Zaferi:</strong> Sezen Aksu – Orhan Tünç – Aysel Gürel ekolü 90'ların Türk popunu şekillendirdi. Yonca Evcimek'in "Abone" şarkısı popun başlangıç noktası olarak anılır. Klip kültürü televizyonu işgal etti; Thriller estetiği Türkiye'ye taşındı. Stüdyum konserleri çağı açıldı: Madonna, Michael Jackson, Metallica Türkiye'ye geldi.</p>
+      <div class="compare">
+        <div class="compare-box">
+          <h4>Pop Müzik</h4>
+          <p>Kültürün endüstrileşmesine öncülük etti. Tüketim odaklı, imaja ve görselliğe vurgu yapan bir müzik anlayışı egemen oldu.</p>
+        </div>
+        <div class="compare-box">
+          <h4>Arabesk & Özgün Müzik</h4>
+          <p>Arabesk bireysel ve kaderci çizgide kalmaya devam etti. Ahmet Kaya gibi isimler ise toplumsal ve siyasal bir duruş sergiledi.</p>
+        </div>
+      </div>
+      <p><strong>Sinema:</strong> "Eşkıya" (1996) sinemaya olan ilgiyi yeniden canlandırdı. Yönetmen filmi geleneği doğdu. Müzik kartellerine (rap müzik sektörü) yönelik eleştiriler yükseldi. Akmor Baskını'nda metal dinleyenler "satanist" olarak damgalanıp gözaltına alındı — bu olay dönemin kültürel muhafazakarlığını simgeler.</p>
+      <div class="fact-box"><strong>Moda:</strong> 80'lere benzer olmakla birlikte 90'lara özgü unsurlar eklendi. Erkeklerde bahçıvan tulumu, kadınlarda jile, bel çantası, oduncu gömleği, şekilli kazaklar. Kot pantolonun çeşitleri genişledi. Moda; siyasi düşünceden çok tüketim kültürünü ve küreselleşmeyi yansıtır hale geldi.</div>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  <p style="font-size:14px; color:rgba(245,240,232,0.7); letter-spacing:2px; text-transform:uppercase;">Türkiye Cumhuriyeti Siyasi Tarihi · 1960–2000</p>
+  <p>El yazması ders notlarından derlenerek hazırlanmıştır · Tüm dönemler kaynak notlarla bütünleşik yorumlanmıştır</p>
+</footer>
+
+</body>
+</html>
